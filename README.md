@@ -1,7 +1,7 @@
 # Assembly-number_Vue
 集结号vue版//Assembly-number_Vue,集结号，一个集结了各种资源的的阅读App!
 该vue版本是对Android版本的模仿，具体样式和Android版本的非常相似。
-预览Android版本，请点击：[集结号（vue版本）](https://github.com/zqljintu/Assembly-number)
+预览Android版本，请点击：[集结号（Android版）](https://github.com/zqljintu/Assembly-number)
 
 项目简介（Vue版本/chrome调试）
 ====
