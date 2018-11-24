@@ -15,9 +15,14 @@
 
     Assembly-number(v1.00).
     1，提供了四个板块。。
-    2，项目使用vue2+vue-router+vuex+axios+mint-ui+stylus等来构建。
+    2，项目使用vue2+vue-router+vuex+axios+mint-ui等来构建。
     3，项目中的api获取采用的跨域来实现，详细请自行搜索（使用http-proxy-middleware 代理解决（项目使用vue-cli脚手架搭建））。
     4，项目中的知乎日报详情有些问题，不能加载图片，（没有解决）。
+    5，娱乐板块的瀑布流布局采用的列表方法进行构建。
+    6，加载更多采用的按键点击解决，知乎日报采取的前后天。
+    7，跳转详情界面通过每个item内部的点击来解决。（采用this.$router.push，利用router传值时注意传name不要传path）。
+    8，返回主界面不是点击前的界面，尚未解决。
+        
  
  ![](https://github.com/zqljintu/Assembly-number_Vue/blob/master/image/ji_vue.jpg)
  
