@@ -2,23 +2,31 @@
 	<div>
 		<div class="div_swipe">
 			<mt-swipe  class="swipe" :auto="4000">
-	           <mt-swipe-item v-for="item in topstories">
+	           <mt-swipe-item v-for="item in topstories" :key="item.id">
 	               <div class="swipe_div">
 	               		<item_top_story :item="item"></item_top_story>
 	               </div>
 	           </mt-swipe-item>
        		</mt-swipe>
 		</div>
-		<div class="label">
+		<div class="label" v-if="stories!=0">
 			<h1 class="date_label">{{getDateString(publishdate)}}</h1>
 		</div>
 		<div v-for="item in stories">
 			<item_story :item="item"></item_story>
 		</div>
-		<div class="button">
+		<div class="button" v-if="stories!=0">
 	    	<mt-button class="button_pre" size="normal" @click="getPreStory">前一天</mt-button>
 	    	<mt-button class="button_next" size="normal" @click="getNextStory">后一天</mt-button>
 		</div>
+		<div class="div_error" v-else>
+			<h1 class="error_net" >网络好像出现了错误^^!!</h1>
+		</div>
+		<!--<mt-popup class="popu_more"
+			  v-model="popupVisible"
+			  position="center">
+			  已经是最新一天了
+		</mt-popup>-->
 	</div>
 </template>
 <script type="text/javascript">
@@ -35,6 +43,7 @@
 				publish_nextdate:'',
 				stories:[],
 				topstories:[],
+				popupVisible:false,
 			}
 		},
 		/**
@@ -67,6 +76,10 @@
 			getNextStory:function(){
 				this.getStoryfromZhihu(this.publish_nextdate);
 				this.getTop();
+				if (this.publishdate===this.getCurrentDay()) {
+					//this.popupVisible=true;
+					this.$toast("已经是最新一天了");
+				}
 			},
 			getImageUrl:function (url) {
 				// body...
@@ -163,5 +176,11 @@
 				}
 			}
 		 }
+	}
+	.div_error{
+		.error_net{
+			font-size: 14px;
+			color: red;
+		}
 	}
 </style>

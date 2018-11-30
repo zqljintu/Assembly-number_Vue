@@ -3,7 +3,8 @@
        	<div v-for="item in movies">
             <item_movie :item="item"></item_movie>
        	</div>
-    	<mt-button class="more_button" size="normal" icon="more" v-on:click="greet">加载更多</mt-button>
+    	<mt-button class="more_button" size="normal" icon="more" v-on:click="greet" v-if="movies.length!=0">加载更多</mt-button>
+    	<h1 class="net_error" v-else>网络可能出现差错^_^</h1>
 	</div>
 </template>
 <script type="text/javascript">
@@ -61,4 +62,10 @@
 		margin-top: 10px;
 		font-size: 14px;
 	}
+	.net_error{
+		font-size: 14px;
+		padding: 10px;
+		color: red;
+	}
+
 </style>

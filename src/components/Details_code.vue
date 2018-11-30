@@ -6,25 +6,36 @@
 		 	 </router-link>
 		  	<mt-button icon="more" slot="right" @click="more"></mt-button>
 		</mt-header>
-		<div class="code_body" v-html=this.$route.params.id>
-		</div>
+		<iframe class="iframe_article" id="article_if" onload="this.height=ifd.document.body.scrollHeight"></iframe>
 	</div>
 </template>
 <script type="text/javascript">
 	export default{
 		data(){
 			return{
-				url:'',
 			}
 		},
 		methods:{
-
+	        frameauto:function() {
+				var ifm = document.getElementById("adlistpage");
+				var subWeb = document.frames ? document.frames["adlistpage"].document : ifm.contentDocument;
+				if (ifm != null && subWeb != null) {
+					ifm.height = subWeb.body.scrollHeight;
+				}
+			}
 		},
 		created:function(){
-			this.url=this.$route.params.id;
-		}
+		},
+		mounted () {
+			window.frames["article_if"].src=this.$route.params.id;
+  		},
 	}
 </script>
-<style lang="scss" scoped="" type="text/css">
-	
+<style    scoped="" type="text/css">
+	.iframe_article{
+		width: 100%;
+		height: 100%;
+		frameborder:"0"; 
+		scrolling:"no";
+	}
 </style>

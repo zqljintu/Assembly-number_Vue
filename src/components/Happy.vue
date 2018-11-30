@@ -13,7 +13,8 @@
 		    </ul>
 		</div>
 		<div class="div_button">
-			<mt-button class="more_button" size="large" icon="more" v-on:click="getgankdata">加载更多</mt-button>
+			<mt-button class="more_button" size="large" icon="more" v-on:click="getgankdata" v-if="data.length!=0">加载更多</mt-button>
+			<h1 class="error_net" v-else>网络好像出现了错误^^!!</h1>
 		</div>
 	</div>
 </template>
@@ -128,5 +129,9 @@
 			margin-top: 10px;
 			font-size: 14px;
 	  	}
+	  }
+	  .error_net{
+	  	font-size: 14px;
+	  	color: red;
 	  }
 </style>

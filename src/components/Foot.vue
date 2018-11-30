@@ -16,7 +16,7 @@
         <happy></happy>
       </mt-tab-container-item>
     </mt-tab-container>
-  	<mt-tabbar class="main_ji" id="footer_ji" fixed=true; v-model="selected">
+  	<mt-tabbar class="main_ji" id="footer_ji"  v-model="selected">
   		<mt-tab-item id="page">
   			<img slot="icon" src="../assets/page_select.png" v-if="this.selected == 'page' ">
         <img slot="icon" src="../assets/page_normal.png" v-else>
@@ -48,7 +48,7 @@
 	export default{
 		data(){
 			return {
-        selected:"page",
+        selected:"",
 			}
 		},
     components:{
@@ -65,6 +65,9 @@
         document.body.scrollTop = 0
         document.documentElement.scrollTop = 0
       },
+    },
+    mounted:function(){
+      this.selected='page';
     },
     watch: {
       selected: function (val, oldVal) {
@@ -95,7 +98,8 @@
 </script>
 <style lang="scss" scoped="" type="text/css">
   .main_ji{color:#ffffff;
-          background: #1DB0B8}
+          background: #1DB0B8;
+          position: fixed;}
   #tab_bar{overflow: scroll;}
   #header_ji{background: #1DB0B8}
   #footer_ji{}

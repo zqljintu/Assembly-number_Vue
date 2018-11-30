@@ -3,7 +3,8 @@
 		<div v-for="item in projects">
 			<item_project :item="item"></item_project>
 		</div>
-		<mt-button class="more_button" size="normal" icon="more" v-on:click="getmoredata">加载更多</mt-button>
+		<mt-button class="more_button" size="normal" icon="more" v-on:click="getmoredata" v-if="projects.length!=0">加载更多</mt-button>
+		<h1 class="error_net" v-else >网络好像出现了错误^^!!</h1>
 	</div>
 </template>
 <script type="text/javascript">
@@ -44,5 +45,9 @@
 		height: 30px;
 		margin-top: 10px;
 		font-size: 14px;
+	}
+	.error_net{
+		font-size: 14px;
+		color: red;
 	}
 </style>

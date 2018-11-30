@@ -30,8 +30,7 @@
 				return '时间：'+src;
 			},
 			getdetails_code:function(){
-				this.$router.push({
-              		name:'details_code',params:{id: this.item.link}});
+				window.open(this.item.link);
 			}
 		}
 	}

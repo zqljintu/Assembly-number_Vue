@@ -1,5 +1,5 @@
 <template>
-	<div class="div_project">
+	<div class="div_project" v-on:click="getdetails_project">
 		<div class="project_about">
 			<h1 class="project_title">{{item.title}}</h1>
 			<h2 class="project_dcs">{{getDescstring(item.desc)}}</h2>
@@ -30,6 +30,9 @@
 					return src.substr(0,75)+'...';
 				}
 				return src;
+			},
+			getdetails_project:function(){
+				window.open(this.item.link);
 			}
 		}
 	}

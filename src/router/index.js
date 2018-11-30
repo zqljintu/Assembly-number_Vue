@@ -19,7 +19,10 @@ export default new Router({
   routes: [
    {
     path:'/',
-    component:foot
+    component:foot,
+     meta: {
+        keepAlive: true // 需要缓存
+     }
    },
    {
       path:'/page',
@@ -52,17 +55,33 @@ export default new Router({
     {
       name:'details_page',
       path:'/details_page',
-      component:details_page
+      component:details_page,
+      meta: {
+        keepAlive: false // 不需要缓存
+     }
     },
     {
       name:'details_movie',
       path:'/details_movie',
-      component:details_movie
+      component:details_movie,
+       meta: {
+        keepAlive: false // 不需要缓存
+     }
     },
     {
       name:'details_code',
       path:'/details_code',
-      component:details_code
+      component:details_code,
+       meta: {
+        keepAlive: false // 不需要缓存
+     }
     },
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  }
 })

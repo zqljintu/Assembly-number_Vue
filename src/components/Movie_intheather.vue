@@ -1,9 +1,10 @@
 <template>
-	<div class="movie_in_load" ref="wrapper" :style="{height: contentH + 'px'}">
+	<div class="movie_in_load">
 		<div v-for="item in movies">
 		  <item_movie :item="item"></item_movie>
 		</div>
-		<h1 class="movie_end">没有更多了^^</h1>
+		<h1 class="movie_end" v-if="movies.length!=0">没有更多了^^</h1>
+		<h1 class="net_error" v-else>网络可能出现差错^_^</h1>
 	</div>
 </template>
 <script  type="text/javascript" >
@@ -40,6 +41,11 @@
 <style lang="scss" scoped=""  type="text/css">
 	.movie_in_load{
 		overflow: scroll;
+		.net_error{
+			color: red;
+			font-size: 14px;
+			padding: 10px;
+		}
 	}
 	.movie_end{
 		font-size: 14px;
