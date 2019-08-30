@@ -102,7 +102,7 @@
 
 		},
 		created:function(){
-				this.$http.jsonp('http://api.douban.com/v2/movie/subject/'+this.$route.params.id, {}, {
+				this.$http.jsonp('http://api.douban.uieee.com/v2/movie/subject/'+this.$route.params.id, {}, {
 			      headers: {
 			      },
 			      emulateJSON: true

@@ -1,5 +1,8 @@
 <template>
 	<div>
+		<!--<mt-button @click="gettest">测试</mt-button>
+		<h1>{{publishdate}}</h1>
+		<h2>{{date}}</h2>-->
 		<div class="div_swipe">
 			<mt-swipe  class="swipe" :auto="4000">
 	           <mt-swipe-item v-for="item in topstories" :key="item.id">
@@ -41,6 +44,7 @@
 			return {
 				publishdate:'',
 				publish_nextdate:'',
+				//date:'',
 				stories:[],
 				topstories:[],
 				popupVisible:false,
@@ -65,6 +69,9 @@
 					this.publish_nextdate=this.getNextDay(res.data.date);
 	  			})
 			},
+			/**gettest:function(){
+				this.date=this.getCurrentDay();
+			},**/
 			getTop:function(){
 				document.body.scrollTop = 0
 				document.documentElement.scrollTop = 0
@@ -76,7 +83,7 @@
 			getNextStory:function(){
 				this.getStoryfromZhihu(this.publish_nextdate);
 				this.getTop();
-				if (this.publishdate===this.getCurrentDay()) {
+				if (this.publishdate==this.getCurrentDay()) {
 					//this.popupVisible=true;
 					this.$toast("已经是最新一天了");
 				}
@@ -99,7 +106,13 @@
 			},
 			getCurrentDay:function(){//获取当前时间
 				var mydate=new Date();
-				return this.replaceAll(mydate.toLocaleDateString(),'/','');
+				mydate.setTime(mydate.getTime());
+				var y = mydate.getFullYear();
+			    var m = mydate.getMonth()+1;
+			    var d = mydate.getDate();
+			    m = m>=10?m:"0"+m;
+			    d = d>=10?d:"0"+d;
+			    return y + "" + m + "" + d;
 			},
 			getPreDay:function(s){//获取某一前一天
 			    var y = parseInt(s.substr(0,4), 10);

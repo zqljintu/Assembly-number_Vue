@@ -26,7 +26,7 @@
 			  	this.getTopmoviefromdouban(this.movies.length);
 			  },
 			getTopmoviefromdouban(start){//获取数据按页
-				this.$http.jsonp('http://api.douban.com/v2/movie/top250?start='+start+'&count=20').then(function(response) {
+				this.$http.jsonp('http://api.douban.uieee.com/v2/movie/top250?start='+start+'&count=20').then(function(response) {
 				this.addmovies=response.data.subjects;
 				for (var i = 0; i < this.addmovies.length; i++) {
 					this.movies.push(this.addmovies[i]);
@@ -42,7 +42,7 @@
 		**/
 		created:function(){
 			  var id=0;
-			  this.$http.jsonp('http://api.douban.com/v2/movie/top250?start='+id+'&count=20').then(function(response) {
+			  this.$http.jsonp('http://api.douban.uieee.com/v2/movie/top250?start='+id+'&count=20').then(function(response) {
 			  	this.movies=response.data.subjects;
 			  }, function(response) {
 			      // 这里是处理错误的回调

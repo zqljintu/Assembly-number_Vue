@@ -25,7 +25,7 @@
 		获取电影资源
 		**/
 		created:function(){
-			  this.$http.jsonp('http://api.douban.com/v2/movie/in_theaters', {}, {
+			  this.$http.jsonp('http://api.douban.uieee.com/v2/movie/in_theaters', {}, {
 			      headers: {
 			      },
 			      emulateJSON: true
