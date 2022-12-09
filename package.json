@@ -12,7 +12,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "element-ui": "^2.4.9",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
     "mint-ui": "^2.2.13",
